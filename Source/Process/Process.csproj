@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <StartupObject>Process.Service.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PipServices.Commons" Version="2.3.15" />
+    <PackageReference Include="PipServices.Container" Version="2.2.2" />
+    <PackageReference Include="PipServices.Data" Version="2.3.1" />
+    <PackageReference Include="PipServices.Net" Version="2.4.4" />
+    <PackageReference Include="PipServices.Oss" Version="1.1.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Interface\Interface.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
+  </ItemGroup>
+
+</Project>

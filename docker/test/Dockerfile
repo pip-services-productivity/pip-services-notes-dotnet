@@ -1,0 +1,22 @@
+# Build stage
+FROM microsoft/aspnetcore-build:2 AS build
+
+# set working directory
+WORKDIR /app
+
+# Restore
+COPY Source/Interface/Interface.csproj ./Source/Interface/
+RUN dotnet restore Source/Interface/Interface.csproj
+COPY Source/Service/Service.csproj ./Source/Service/
+RUN dotnet restore Source/Service/Service.csproj
+COPY Source/Client/Client.csproj ./Source/Client/
+RUN dotnet restore Source/Client/Client.csproj
+COPY Source/Process/Process.csproj ./Source/Process/
+RUN dotnet restore Source/Process/Process.csproj
+COPY Test/Service.Test/Service.Test.csproj ./Test/Service.Test/
+RUN dotnet restore Test/Service.Test/Service.Test.csproj
+COPY Test/Client.Test/Client.Test.csproj ./Test/Client.Test/
+RUN dotnet restore Test/Client.Test/Client.Test.csproj
+
+# Copy src
+COPY . .
